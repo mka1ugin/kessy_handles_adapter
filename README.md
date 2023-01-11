@@ -51,19 +51,23 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
       
       TIM2->CNT = 0;
 			
-			if (pulseWidth >= (Lock_Pulse_Width_ms - Tolerance_ms) * 100 && 
-				pulseWidth <= (Lock_Pulse_Width_ms + Tolerance_ms) * 100 &&
-				(period - pulseWidth) >= (Pause_width_ms - Tolerance_ms) * 100 && 
-				(period - pulseWidth) <= (Pause_width_ms + Tolerance_ms) * 100)
+		if (
+			pulseWidth >= (Lock_Pulse_Width_ms - Tolerance_ms) * 100 && 
+			pulseWidth <= (Lock_Pulse_Width_ms + Tolerance_ms) * 100 &&
+			(period - pulseWidth) >= (Pause_width_ms - Tolerance_ms) * 100 && 
+			(period - pulseWidth) <= (Pause_width_ms + Tolerance_ms) * 100
+		    )
 		{
 			HAL_GPIO_WritePin(Lock_GPIO_Port, Lock_Pin, GPIO_PIN_SET);
 			TIM3->CNT = 0;
 		}
 		
-		if (pulseWidth >= (Unlock_Pulse_Width_ms - Tolerance_ms) * 100 && 
-				pulseWidth <= (Unlock_Pulse_Width_ms + Tolerance_ms) * 100 &&
-				(period - pulseWidth) >= (Pause_width_ms - Tolerance_ms) * 100 && 
-				(period - pulseWidth) <= (Pause_width_ms + Tolerance_ms) * 100)
+		if (
+			pulseWidth >= (Unlock_Pulse_Width_ms - Tolerance_ms) * 100 && 
+			pulseWidth <= (Unlock_Pulse_Width_ms + Tolerance_ms) * 100 &&
+			(period - pulseWidth) >= (Pause_width_ms - Tolerance_ms) * 100 && 
+			(period - pulseWidth) <= (Pause_width_ms + Tolerance_ms) * 100
+		    )
 		{
 			HAL_GPIO_WritePin(Unlock_GPIO_Port, Unlock_Pin, GPIO_PIN_SET);
 			TIM3->CNT = 0;
