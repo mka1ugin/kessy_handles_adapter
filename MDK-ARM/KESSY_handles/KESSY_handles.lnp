@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"kessy_handles\startup_stm32f103xb.o"
+"kessy_handles\main.o"
+"kessy_handles\stm32f1xx_it.o"
+"kessy_handles\stm32f1xx_hal_msp.o"
+"kessy_handles\stm32f1xx_hal_gpio_ex.o"
+"kessy_handles\stm32f1xx_hal_tim.o"
+"kessy_handles\stm32f1xx_hal_tim_ex.o"
+"kessy_handles\stm32f1xx_hal.o"
+"kessy_handles\stm32f1xx_hal_rcc.o"
+"kessy_handles\stm32f1xx_hal_rcc_ex.o"
+"kessy_handles\stm32f1xx_hal_gpio.o"
+"kessy_handles\stm32f1xx_hal_dma.o"
+"kessy_handles\stm32f1xx_hal_cortex.o"
+"kessy_handles\stm32f1xx_hal_pwr.o"
+"kessy_handles\stm32f1xx_hal_flash.o"
+"kessy_handles\stm32f1xx_hal_flash_ex.o"
+"kessy_handles\stm32f1xx_hal_exti.o"
+"kessy_handles\system_stm32f1xx.o"
+--strict --scatter "KESSY_handles\KESSY_handles.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "KESSY_handles.map" -o KESSY_handles\KESSY_handles.axf
